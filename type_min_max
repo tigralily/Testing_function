@@ -1,0 +1,4 @@
+CREATE TYPE min_max_state AS (
+  min_v numeric,
+  max_v numeric
+);
