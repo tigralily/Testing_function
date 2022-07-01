@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION min_max_final(
+  state min_max_state
+) RETURNS text AS $$
+BEGIN
+  RETURN state.min_v||'->'||state.max_v
+  END;
+END;
+$$ LANGUAGE plpgsql;
