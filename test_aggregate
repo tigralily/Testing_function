@@ -1,0 +1,3 @@
+select min(coalesce(val, 0))||'->'|| max(val) from (VALUES(5),(3),(6),(7),(9),(10),(7)) t(val);
+
+select min_max(val) from from (VALUES(5),(3),(6),(7),(9),(10),(7)) t(val);
