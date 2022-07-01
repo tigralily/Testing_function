@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION min_max_transition(
+  state min_max_state,
+  val numeric
+) RETURNS min_max_state AS $$
+BEGIN
+  if (state.min_v is null or state.min_v > coalesce(val, 0)) then
+		state.min_v = val;
+  end if;
+  if (state.max_v is null or state.max_v < coalesce(val, 0)) then
+  	state.max_v = val;
+  end if;
+  RETURN (state.min_v, state.max_v)::min_max_state;
+END;
+$$ LANGUAGE plpgsql;
