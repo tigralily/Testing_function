@@ -1,0 +1,5 @@
+CREATE AGGREGATE min_max(numeric) (
+  sfunc     = min_max_transition,
+  stype     = min_max_state,
+  finalfunc = min_max_final
+);
